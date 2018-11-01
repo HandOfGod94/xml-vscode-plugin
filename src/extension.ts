@@ -3,6 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import * as path from "path";
+import * as os from "os";
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient";
 
 // this method is called when your extension is activated
@@ -19,6 +20,13 @@ export function activate(context: vscode.ExtensionContext) {
       "jars",
       "xml-xsd-langserver-1.0-SNAPSHOT-jar-with-dependencies.jar"
     )
+  );
+
+  let debugXmlServerPath = path.join(
+    os.homedir(),
+    '.m2', 'repository', 'io', 'github', 'handofgod94',
+    'xml-language-server', '1.0-SNAPSHOT',
+    'xml-language-server-1.0-SNAPSHOT-jar-with-dependencies.jar'
   );
 
   // Server options
@@ -39,7 +47,7 @@ export function activate(context: vscode.ExtensionContext) {
             '-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager',
             '-jar',
             '-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,quiet=y,address=8010',
-            'C:\\Users\\1021124\\.m2\\repository\\io\\github\\handofgod94\\xml-language-server\\1.0-SNAPSHOT\\xml-language-server-1.0-SNAPSHOT-jar-with-dependencies.jar',
+            debugXmlServerPath
         ],
         transport: TransportKind.ipc,
     }
@@ -52,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
       synchronize: {
           fileEvents: vscode.workspace.createFileSystemWatcher('**/*.xml'),
       },
-  }
+  };
 
   // Initialize language client
   let languageClient = new LanguageClient('xml', serverOpts, clientOpts);
