@@ -1,9 +1,10 @@
 # xml-vscode-plugin
 
 > I started this project when there was no XML Plugin available for VSCode.
-> But now we have XML Plugin by RedHat available, so I recommend all to use that
-> as I won't be able to go ahead with the current project.
-> Do check em out: https://github.com/angelozerr/lsp4xml, https://github.com/redhat-developer/vscode-xml
+> But now we have XML Plugin by RedHat available, so I recommend all to use that.
+> Do check em out: https://github.com/angelozerr/lsp4xml, https://github.com/redhat-developer/vscode-xml   
+> Meanwhile, I will try my best to improve and new features to this project, but not having the freedom
+> to dedicate time for it may take a bit longer to finish it.
 
 VSCode plugin for XML language. This is an LSP Client which uses `xml-language-server`
 to provide features such as autocomplete, validation and documentation for XML languages.
@@ -13,10 +14,10 @@ to provide features such as autocomplete, validation and documentation for XML l
   - [x] XSD
   - [ ] DTD
 * Autocomplete
-  - [ ] XSD
+  - [x] XSD
   - [ ] DTD
 * Documentation
-  - [ ] XSD
+  - [x] XSD
   - [ ] DTD
 
 > Refer to `xml-language-server` repository for updated info on features.
